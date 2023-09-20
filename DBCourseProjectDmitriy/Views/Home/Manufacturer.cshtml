@@ -1,0 +1,76 @@
+﻿@{
+	ViewData["Title"] = "Производители";
+}
+<div>
+	<h2>Производители</h2>
+	<table width="100%" class="table table-striped table-hover table-bordered">
+		<thead>
+			<tr class="head">
+				<th scope="col">Id</th>
+				<th scope="col">Название</th>
+				<th scope="col">Директор</th>
+				<th scope="col">Банковские реквизиты</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<div width="100%" class="buttons">
+		<button id="add" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Добавить производителя</button>
+		<button id="edit" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" disabled>Изменить</button>
+		<button id="delete" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" disabled>Удалить производителя</button>
+	</div>
+
+	<div id="addModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Добавить/Изменить производителя</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<form class="needs-validation" novalidate>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Название:</span>
+							<input type="text" class="form-control" required id="name" />
+							<div class="invalid-feedback">Пожалуйста, введите название производителя</div>
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Фамилия директора:</span>
+							<input type="text" class="form-control" required id="director" />
+							<div class="invalid-feedback">Пожалуйста, введите фамилию директора</div>
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Номер банковского счета:</span>
+							<input type="number" class="form-control" min="0" required id="bankDetails" />
+							<div class="invalid-feedback">Пожалуйста, введите номер банковского счёта</div>
+						</div>
+						<div class="modal-footer">
+							<button id="saveBtn" type="submit" class="btn btn-primary">Добавить/Изменить</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Удалить производителя</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<p>
+						Вы точно хотите удалить производителя?
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+					<button id="deleteBtn" type="button" class="btn btn-danger" data-bs-dismiss="modal">Удалить</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="~/js/manufacturer.js" asp-append-version="true"></script>

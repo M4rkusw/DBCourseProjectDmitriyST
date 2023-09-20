@@ -1,0 +1,37 @@
+﻿@{
+	ViewData["Title"] = "Чеки";
+}
+
+<div>
+	<h2>Чеки</h2>
+	<table width="100%" class="table table-striped table-hover table-bordered">
+		<thead>
+			<tr class="head">
+				<th scope="col">Id</th>
+				<th scope="col">Время оплаты</th>
+				<th scope="col">Сумма оплаты</th>
+				<th scope="col">Номер заказа</th>
+				<th scope="col">Оплатил</th>
+				<th scope="col">Счёт оплаты</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<div width="100%" class="buttons">
+		<button id="unload" name="bill" type="button" class="btn btn-success">Выгрузть чеки в Excel</button>
+	</div>
+	<div id="unloadInfoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="unloadInfoModal" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Чеки выгружены</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ОК</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="~/js/bills.js" asp-append-version="true"></script>

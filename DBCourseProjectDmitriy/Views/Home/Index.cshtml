@@ -1,0 +1,78 @@
+﻿@{
+	ViewData["Title"] = "Клиенты";
+}
+
+<div>
+	<h2>Клиенты</h2>
+	<table width="100%" class="table table-striped table-hover table-bordered">
+		<thead>
+			<tr class="head">
+				<th scope="col">Id</th>
+				<th scope="col">ФИО</th>
+				<th scope="col">Телефон</th>
+				<th scope="col">Банковский счет</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<div width="100%" class="buttons">
+		<button id="add" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Добавить клиента</button>
+		<button id="edit" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" disabled>Изменить</button>
+		<button id="delete" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" disabled>Удалить клиента</button>
+	</div>
+
+	<div id="addModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Добавить/Изменить клиента</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<form class="needs-validation" novalidate>
+						<div class="input-group mb-3">
+							<span class="input-group-text">ФИО:</span>
+							<input type="text" class="form-control" required id="fullName" />
+							<div class="invalid-feedback">Пожалуйста, введите ФИО</div>
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Телефон:</span>
+							<input type="text" class="form-control" required id="telephone" />
+							<div class="invalid-feedback">Пожалуйста, введите номер телефона</div>
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Номер банковского счета:</span>
+							<input type="number" class="form-control" min="0" required id="bankAccount" />
+							<div class="invalid-feedback">Пожалуйста, введите номер банковского счета</div>
+						</div>
+						<div class="modal-footer">
+							<button id="saveBtn" type="submit" class="btn btn-primary">Добавить/Изменить</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Удалить клиента</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<p>
+						Вы точно хотите удалить клиента?
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+					<button id="deleteBtn" type="button" class="btn btn-danger" data-bs-dismiss="modal">Удалить</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="~/js/client.js" asp-append-version="true"></script>

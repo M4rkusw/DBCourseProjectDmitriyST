@@ -1,0 +1,108 @@
+﻿@{
+	ViewData["Title"] = "Корзина";
+}
+
+<div>
+	<h2>Корзина</h2>
+	<table width="100%" class="table table-striped table-hover table-bordered">
+		<thead>
+			<tr class="head">
+				<th scope="col">В заказ</th>
+				<th scope="col">Id</th>
+				<th scope="col">Название товара</th>
+				<th scope="col">Количество</th>
+				<th scope="col">Сумма</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<div width="100%" class="buttons">
+		<button id="add" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" disabled>Добавить в заказ</button>
+		<button id="edit" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" disabled>Изменить количество</button>
+		<button id="delete" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" disabled>Удалить товар</button>
+	</div>
+	<div id="addModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Добавить в заказ</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<form class="needs-validation" novalidate>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Договор:</span>
+							<select class="form-select" required id="contract">
+								<option value="" disabled selected>--Выберите договор--</option>
+							</select>
+							<div class="invalid-feedback">Пожалуйста, выберете договор</div>
+						</div>
+						<div class="modal-footer">
+							<button id="addBtn" type="submit" class="btn btn-primary">Добавить</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="editModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Изменить количество</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<form class="needs-validation" novalidate>
+						<div class="input-group mb-3">
+							<span class="input-group-text">Количество:</span>
+							<input type="number" class="form-control" min="1" required id="quantity" />
+							<div class="invalid-feedback">Пожалуйста, введите количество товаров</div>
+						</div>
+						<div class="modal-footer">
+							<button id="editBtn" type="submit" class="btn btn-primary">Изменить</button>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Удалить клиента</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+				</div>
+				<div class="modal-body">
+					<p>
+						Вы точно хотите удалить товар?
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+					<button id="deleteBtn" type="button" class="btn btn-danger" data-bs-dismiss="modal">Удалить</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div width="100%" class="buttons">
+		<button id="unload" name="orderedGoods" type="button" class="btn btn-success">Выгрузть заказываемые товары в Excel</button>
+	</div>
+	<div id="unloadInfoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="unloadInfoModal" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Заказываемые товары выгружены</h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">ОК</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="~/js/cart.js" asp-append-version="true"></script>

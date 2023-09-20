@@ -1,0 +1,47 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.buttons {
+    display: inline-block;
+}
+
+.radioButtons {
+    display: inline-block;
+    padding: 16px;
+}
+
+select {
+    width: 400px;
+}
+
+.active {
+    background-color: cornflowerblue;
+}
+
+select:required:invalid {
+    color: gray;
+}
+
+option[value=""][disabled] {
+    display: none;
+}
+
+option {
+    color: black;
+}
